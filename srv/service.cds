@@ -70,7 +70,7 @@ service ZLEAVE_MGMT_SRV @(path: '/srv') {
         }}
     };
 
-    function getAllF4Items(email: String, gender: String)                           returns {};
+    function getAllF4Items(email: String)                                           returns {};
     action   approveLeave(leaveRequestId: String, leaveType: String, empId: String) returns Result;
     action   rejectLeave(leaveRequestId: String, leaveType: String, empId: String)  returns Result;
 }

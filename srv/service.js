@@ -163,19 +163,20 @@ module.exports = (srv => {
     // function to call procedure
     srv.on("getAllF4Items", async (req) => {
         try {
-            const { email, gender } = req.data;
-            const query = `CALL "getF4ByProcedure"(?, ?, ?, ?, ?, ? )`;
-            const result = await cds.run(query, [email, gender]);
+            const { email } = req.data;
+            const query = `CALL "getF4ByProcedure"(?, ?, ?, ? )`;
+            const response = await cds.run(query, [email]);
 
             const data = {
-                "status": "SUCCESS",
-                "leaveTypeF4": result.LEAVE_TYPE_F4,
-                "priorityF4": result.PRIORITY_F4,
-                "loggedInUser": result.LOGGED_IN_USER,
-                "employeeAsPerGender": result.EMPLOYEE_AS_PER_GENDER
+                status: "SUCCESS",
+                results: {
+                    leaveTypeF4: response.LEAVE_TYPE_F4,
+                    priorityF4: response.PRIORITY_F4,
+                    loggedInUser: response.LOGGED_IN_USER
+                }
             };
-
             return data;
+            
         } catch (error) {
             console.log(error.message);
 
