@@ -1,0 +1,69 @@
+GET http://localhost:4004/srv/EmployeeSet
+###
+
+DELETE http://localhost:4004/srv/EmployeeSet('3d894b9d-cbd0-4b86-84d8-5daaeebb0457')
+
+###
+
+POST http://localhost:4004/srv/EmployeeSet
+Content-Type: application/json
+
+{
+      "firstName": "Tanya",
+      "lastName": "Shroff",
+      "email": "tanya.shroff@gmail.com",
+      "gender": "F",
+      "experience":"3.6",
+      "contact": 9980450245
+      
+}
+
+###
+
+GET  http://localhost:4004/srv/LeaveBalanceSet
+
+###
+
+DELETE http://localhost:4004/srv/LeaveBalanceSet('e589e50a-6b17-481b-9584-612695b387ae')
+
+###
+
+GET  http://localhost:4004/srv/LeaveRequestSet
+
+###
+
+POST http://localhost:4004/srv/LeaveRequestSet
+Content-Type: application/json
+
+{
+    "fromDate": "2026-04-14",
+    "toDate": "2026-04-14",
+    "reason": "Hospital visit",
+    "status": "",
+    "priority": "Urgent",
+    "leaveType": "SL",
+    "isHalfDay": true,
+    "employee_id": "3a62ee11-d065-4eb0-9f0c-21a4489b3776"
+}
+
+###
+
+DELETE http://localhost:4004/srv/LeaveRequestSet('f1af017f-f4d6-434c-9c27-7979c1e41f3c')
+
+###
+
+POST http://localhost:4004/srv/rejectLeave
+Content-Type: application/json
+
+{
+    "leaveRequestId": "d3da88b7-acca-4932-b381-46fbe9cf3963",
+    "leaveType": "SL",
+    "empId": "3a62ee11-d065-4eb0-9f0c-21a4489b3776"
+}
+
+###
+GET http://localhost:4004/srv/getAllF4Items(email='tiwaribhavesh45@gmail.com',gender='M')
+
+
+
+

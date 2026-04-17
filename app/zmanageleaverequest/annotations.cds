@@ -1,0 +1,1 @@
+using zleavemgmt.srv.service.ZLEAVE_MGMT_SRV as service from '../../srv/service';
